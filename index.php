@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
-<?PHP include("settings.php");?>
+<?PHP include("settings.php");
+include("icons.php");
+?>
 <!-- need to add tooltips and popper for jquery/bootstrap -->
 <link rel="stylesheet" href="css/style.css">
 <meta property="og:url" content="<?PHP echo $ogurl;?>" />
@@ -59,8 +61,16 @@
                             
                           
                                     $target=str_replace(" ", "-", $file);
-
-                                    echo "<button type=\"button\" class=\"list-group-item list-group-item-action\" value=\"$file\" data-toggle=\"collapse\" data-target=\"#f".$target."\" aria-expanded=\"false\" aria-controls=\"".$target."\"><i class=\"fa fa-folder text-gold\" ></i> $file</button>\n";
+                                    $iconImg = iconImage($newdir);
+                                    echo "<button type=\"button\" class=\"list-group-item list-group-item-action\" value=\"$file\" data-toggle=\"collapse\" data-target=\"#f".$target."\" aria-expanded=\"false\" aria-controls=\"".$target."\">";
+                                    if($folderIcon == 1){
+                                        echo "<img src=\"data:image/jpeg;base64, $iconImg\"> ";       
+                                    } else {
+                                        echo "<i class=\"fa fa-folder text-gold\" ></i> ";
+                                    }
+                                    
+                                    
+                                    echo "$file</button>\n";
                                     echo "<div class='list-group small collapse margin-10' id=\"f".$target."\">";
                 
                                     echo "</div>";
