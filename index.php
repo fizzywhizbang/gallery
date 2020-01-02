@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
 <?PHP include("settings.php");
-include("icons.php");
+include("functions.php");
 ?>
 <!-- need to add tooltips and popper for jquery/bootstrap -->
 <link rel="stylesheet" href="css/style.css">
@@ -32,7 +32,7 @@ include("icons.php");
 }
 </style>
 </head>
-<body class="has-header row-spacing-md" data-pagination-style="scroll" data-target-row-height="200">
+<body>
     <?PHP
     function isEmptyDir($dir){ 
         return (($files = @scandir($dir)) && count($files) <= 2); 
