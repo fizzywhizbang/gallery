@@ -7,15 +7,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
-
+<?PHP include("settings.php");?>
 <!-- need to add tooltips and popper for jquery/bootstrap -->
 <link rel="stylesheet" href="css/style.css">
-<meta property="og:url" content="https://www.m-levine.com" />
-<meta property="og:type" content="Photo Album" />
-<meta property="og:title" content="M-Levine Photography" />
-<meta property="og:description" content="Marc Levine's personal photo album" />
-<meta property="og:image" content="https://www.m-levine.com/uploaded-content/2013%20Gildehaus%20Germany/images/thumbnails/DSC_0507.jpg">
-<title>Photo Gallery HTML5</title>
+<meta property="og:url" content="<?PHP echo $ogurl;?>" />
+<meta property="og:type" content="<?PHP echo $ogtype;?>" />
+<meta property="og:title" content="<?PHP echo $ogtitle;?>" />
+<meta property="og:description" content="<?PHP echo $ogdescription;?>" />
+<meta property="og:image" content="<?PHP echo $ogimage;?>">
+<title><?PHP echo $title;?></title>
 <style>
     .modal-dialog {
   position: relative;
@@ -35,14 +35,10 @@
     function isEmptyDir($dir){ 
         return (($files = @scandir($dir)) && count($files) <= 2); 
     }
-    
-    
-   error_reporting(E_ALL);
-   ini_set("display_errors", 1);
     ?>
 <div class="card">
     <div class="card-header text-center" style="cursor:pointer" onclick="window.location='index.php'">
-       <h1>M-Levine.com</h1>
+       <h1><?PHP echo $header;?></h1>
     </div>
     <div class="card-body">
         <div class="container-fluid">
@@ -76,17 +72,7 @@
  
                 </div>
                 <div id="viewer" class="col-9">
-                        Okay...<br>
-                        Welcome to my photo album.<br>
-                        <p>
-                        I custom wrote this site for myself because I wasn’t happy with the options I found.<br>
-                        First, I use Adobe Lightroom for my photo management and as much as I love it the web templates are not what I was looking for. I could have written my own web template but then I still would have to manage an index for all of those albums. So, I wrote my own dynamic page and parse the JSON data from the Lightroom created albums to create my own albums.
-I looked at many “simple” gallery viewers and finally found Fancybox. It’s simple to implement and fits perfectly into my own code.</p>
-
-If’n you want a copy of this code then click here.
-<br>
-You will need to create a folder/directory named uploaded-content into which you will upload your albums from lightroom.
-
+                       <?PHP include("welcome.php");?>
                 </div>
             </div>
         </div>
