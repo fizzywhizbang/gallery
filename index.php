@@ -7,7 +7,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
-<?PHP include("settings.php");
+<?PHP 
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+include("settings.php");
 include("functions.php");
 ?>
 <!-- need to add tooltips and popper for jquery/bootstrap -->
@@ -45,10 +48,11 @@ include("functions.php");
     <div class="card-body">
         <div class="container-fluid">
             <div class="row">
-                <div class="list-group small">
+                <div class="col small scrollable-menu">
+                     
                     <?PHP
                     //folder reader needs to be recursive
-                    $dir="uploaded-content";
+                    
                     //$dh = opendir($dir);
                     $files = scandir($dir, 0);
                     //rsort($files);
@@ -122,6 +126,7 @@ $(document).ready(function(){
 });
 
 </script>
+
 <script>
 function loadContent(target, val){
     document.getElementById(target).src=val;
