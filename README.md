@@ -7,4 +7,4 @@
 6) create web album in Adobe Lightroom using Track web photo gallery
 7) upload that albut to the uploaded-content folder on your website
 8) view your web page and enjoy
-View here <a href="https://www.m-levine.com" target="_blank">M-levine.com</a>
+View here <a href="https://www.m-levine.com">M-levine.com</a>
