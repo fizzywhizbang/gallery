@@ -19,7 +19,7 @@ include("functions.php");
 <meta property="og:type" content="<?PHP echo $ogtype;?>" />
 <meta property="og:title" content="<?PHP echo $ogtitle;?>" />
 <meta property="og:description" content="<?PHP echo $ogdescription;?>" />
-<meta property="og:image" content="<?PHP echo $ogimage;?>">
+<meta property="og:image" content="<?PHP echo ogimage($ogimage);?>">
 <title><?PHP echo $title;?></title>
 <style>
     .modal-dialog {
@@ -49,7 +49,7 @@ include("functions.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col small scrollable-menu">
-                     
+                     <button type="button" class="list-group-item list-group-item-action" onclick="window.location='index.php'"><i class="fa fa-home text-green" style="font-size:30px"></i> Home</button>
                     <?PHP
                     //folder reader needs to be recursive
                     

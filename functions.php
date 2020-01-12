@@ -7,6 +7,7 @@ function thumbnailImage($imagePath) {
     $imagick->clear();
     return base64_encode($imageBlob);
 }
+
 function iconImage($imagePath) {
     global $folderIconSize;
     //get first file from path and return as icon
@@ -18,6 +19,36 @@ function iconImage($imagePath) {
     $imageBlob = $imagick->getImageBlob();
     $imagick->clear();
     return base64_encode($imageBlob);
+}
+
+function ogimage($image){
+    global $dir;
+    if($image=="random"){
+        if($_SERVER["HTTPS"]=="on"){
+            $http="https://";
+        } else {
+            $http="http://";
+        }
+        return $http . $_SERVER["SERVER_NAME"] . "/" . randomImage($dir);
+    } else {
+        return $image;
+    }
+}
+
+function randomImage($dir){
+    $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+
+    $files = array(); 
+    foreach ($rii as $file)
+        if (!$file->isDir())
+            if(isImage($file->getPathname()) == 1){
+                $files[] = $file->getPathname();
+            }
+    
+            
+    $randomNumber = rand(0,count($files));
+    return $files[$randomNumber];
+    
 }
 
 function getFirstFile($path){
